@@ -9,7 +9,7 @@ const useStyle = makeStyles({  // useStyle 적용 안됨
 });
 
 
-export default function LogIn() {
+export default function Signup() {
     const classes = useStyle;
     return (
         <>
@@ -18,9 +18,24 @@ export default function LogIn() {
                 <TextField 
                     style={{ margin: 5 }}
                     id="email-input" 
-                    label="이메일 또는 닉네임" 
+                    label="이메일 주소" 
                     variant="outlined" 
                 />
+            </form>
+            <form className={classes.text} noValidate autoComplete="off">
+                <TextField 
+                    style={{ margin: 5 }} 
+                    id="name-input" 
+                    label="이름" 
+                    variant="outlined" 
+                />
+            </form>
+            <form className={classes.text} noValidate autoComplete="off">
+                <TextField 
+                    style={{ margin: 5 }} 
+                    id="nickname-input" 
+                    label="닉네임" 
+                    variant="outlined" />
             </form>
             <form className={classes.text} noValidate autoComplete="off">
                 <TextField 
