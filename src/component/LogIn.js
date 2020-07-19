@@ -17,7 +17,7 @@ export default function LogIn() {
             <form className={classes.text} noValidate autoComplete="off">
                 <TextField 
                     style={{ margin: 5 }}
-                    id="email-input" 
+                    id="email-login" 
                     label="이메일 또는 닉네임" 
                     variant="outlined" 
                 />
@@ -25,12 +25,15 @@ export default function LogIn() {
             <form className={classes.text} noValidate autoComplete="off">
                 <TextField 
                     style={{ margin: 5 }} 
-                    id="password-input" 
+                    id="password-login" 
                     label="비밀번호" 
                     type="password" 
                     variant="outlined" />
             </form>
-            <Button style={{ margin: 10 }} variant="contained" color="primary">회원가입</Button>
+
+            <p>계정이 없으신가요?</p> <a style={{color:"blue"}}>가입하기</a> 
+            <br></br>
+            <Button style={{ margin: 10 }} variant="contained" color="primary">로그인</Button>
         </>
     );
 
