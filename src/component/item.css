@@ -1,0 +1,48 @@
+.item-align {
+  border : 1px solid lightgray;
+  width : 550px;
+  text-align : center;
+  margin-left : 570px;
+}
+
+.space {
+    margin-top : 80px;
+}
+
+.profile-image{
+    /* margin-top : 70px; */
+    margin-left : 400px;
+    margin-right: 100px;
+    float: left;
+}
+
+.nickname{
+    font-size : 35px;
+    
+}
+
+.intro{
+    font-size : 20px;
+    margin-left : 50px;
+}
+
+.profile-info {
+    margin-top : 80px;
+    margin-bottom: 80px;
+}
+
+.card-align {
+    margin-top : 20px;
+    margin-left : 400px;
+}
+
+.card-comment-nickname {
+    float : left;
+    font-weight : bold;
+    margin-right: 20px;
+}
+
+.like-style {
+    float: left;
+    margin-top : 3px;
+}

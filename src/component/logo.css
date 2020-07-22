@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster&display=swap);
+   
+.logo-font{
+    font-family: 'Lobster',cursive;
+    font-size: 45px;
+    margin-left: 100px;
+    margin-top : 10px;
+}
+
+.border-style{
+
+    border-bottom: 1px solid lightgray;
+    scroll-margin-inline-start: 100px;
+
+}

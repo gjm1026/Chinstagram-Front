@@ -5,6 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Profile from './Profile';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,21 +13,19 @@ const useStyles = makeStyles((theme) => ({
         float : 'left',
         marginLeft : 120,
         width : 400,
-        marginBottom : 120
+        marginBottom : 100,
+        marginTop : 0
     },
     media: {
         height: 0,
         paddingTop: '100.25%', // 16:9
-    }
+    },
 }));
 
-export default function Main() {
-    const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
+export default function CardPosts() {
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+    const classes = useStyles();
+    
 
     return (
         <div>
