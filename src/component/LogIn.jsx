@@ -16,6 +16,17 @@ const useStyle = makeStyles({
 export default function LogIn() {
     const classes = useStyle;
 
+
+    const onClickLogIn = () => 
+    {
+        window.location.href = "/main";
+    };
+
+      const onClickSignUp = () => 
+      {
+        window.location.href = "/signup";
+      };
+
     return (
         <div style={{height:1200}}>
             <Logo></Logo>
@@ -23,8 +34,7 @@ export default function LogIn() {
             <div className="space"></div>
             <div className="item-align">
 
-                <h2>Log In</h2>
-                <div className="space"></div>
+                <h2 style={{marginTop:50, marginBottom: 50}}>Log In ෆ</h2>
                 <div>
                     <TextField
                         style={{ margin: 5, width: 250 }}
@@ -42,9 +52,8 @@ export default function LogIn() {
                         type="password"
                         variant="outlined" />
                 </div>
-                <p>계정이 없으신가요?</p> <a style={{ color: "blue" }}>가입하기</a>
-                <br></br>
-                <Button style={{ margin: 10 }} variant="contained" color="primary">로그인</Button>
+                <p style={{marginBottom:20}}>계정이 없으신가요?</p> <a style={{ color: "blue", marginBottom:30}} onClick={onClickSignUp}>가입하기</a><br></br>
+                <Button style={{ margin: 10, marginTop:30 }} variant="contained" color="primary" onClick={onClickLogIn}>로그인</Button>
                 <div className="space"></div>
             </div>
         </div>

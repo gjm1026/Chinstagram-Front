@@ -12,7 +12,7 @@
 .profile-image{
     /* margin-top : 70px; */
     margin-left : 400px;
-    margin-right: 100px;
+    margin-right: 50px;
     float: left;
 }
 
@@ -45,4 +45,15 @@
 .like-style {
     float: left;
     margin-top : 3px;
+}
+
+.card-comment-style {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.media {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    margin-left:  200px;
 }

@@ -10,7 +10,16 @@ const useStyle = makeStyles({  // useStyle 적용 안됨
 
 
 export default function Signup() {
+
+
     const classes = useStyle;
+
+    const onClickSignUpComplete = () => 
+    {
+        window.location.href = "/";
+      };
+
+
     return (
         <div style={{height:1200}}>
             <Logo></Logo>
@@ -18,8 +27,7 @@ export default function Signup() {
             <div className="space"></div>
             <div className="item-align">
 
-                <h2>Sign Up</h2>
-                <div className="space"></div>
+                <h2 style={{marginTop: 50, marginBottom:50}}>Sign Up ෆ</h2>
                 <div>
                     <TextField
                         style={{ margin: 5, width: 250 }}
@@ -63,7 +71,7 @@ export default function Signup() {
                     label="가입하면 Chinstagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다."
                 />
                 <br></br>
-                <Button style={{ margin: 10 }} variant="contained" color="primary">회원가입</Button>
+                <Button style={{ margin: 10 }} variant="contained" color="primary" onClick={onClickSignUpComplete}>회원가입</Button>
                 <div className="space"></div>
 
             </div>
