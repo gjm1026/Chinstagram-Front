@@ -1,59 +1,58 @@
 .item-align {
-  border : 1px solid lightgray;
-  width : 550px;
-  text-align : center;
-  margin-left : 570px;
+  border: 1px solid lightgray;
+  width: 550px;
+  text-align: center;
+  margin-left: 570px;
 }
 
 .space {
-    margin-top : 80px;
+  margin-top: 80px;
 }
 
-.profile-image{
-    /* margin-top : 70px; */
-    margin-left : 400px;
-    margin-right: 50px;
-    float: left;
+.profile-image {
+  /* margin-top : 70px; */
+  margin-left: 400px;
+  margin-right: 50px;
+  float: left;
 }
 
-.nickname{
-    font-size : 35px;
-    
+.nickname {
+  font-size: 35px;
 }
 
-.intro{
-    font-size : 20px;
-    margin-left : 50px;
+.intro {
+  font-size: 20px;
+  margin-left: 50px;
 }
 
 .profile-info {
-    margin-top : 80px;
-    margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .card-align {
-    margin-top : 20px;
-    margin-left : 400px;
+  margin-top: 20px;
+  margin-left: 400px;
 }
 
 .card-comment-nickname {
-    float : left;
-    font-weight : bold;
-    margin-right: 20px;
+  float: left;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 .like-style {
-    float: left;
-    margin-top : 3px;
+  float: left;
+  margin-top: 3px;
 }
 
 .card-comment-style {
-    list-style: none;
-    padding-left: 0px;
+  list-style: none;
+  padding-left: 0px;
 }
 
 .media {
-    margin-top: 200px;
-    margin-bottom: 200px;
-    margin-left:  200px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  margin-left: 200px;
 }
