@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import ChinstagramApi from "../../chinstagramAPI/ChinstagramAPI";
 import {
   Button,
   TextField,
@@ -10,55 +10,40 @@ import Logo from "../logo/Logo";
 import "../item.css";
 
 export default function Signup(props) {
+  const [user, setUser] = useState({
+    email: "",
+    nickname: "",
+    name: "",
+    password: "",
+  });
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [password, setPassword] = useState("");
-  const [term, setTerm] = useState(false);
-  const [termError,setTermError] = useState(false);
-
-  const onSubmit = () => {
-    if (!term) {
-      return setTermError(true);
-    }
-    console.log({
-      email,
-      name,
-      nickname,
-      password,
-      term,
+  const userHandle = (v) => (e) => {
+    setUser({
+      ...user,
+      [v]: e.target.value,
     });
   };
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const onChangeName = (e) => {
-    setName(e.target.value);
-  };
-
-  const onChangeNickname = (e) => {
-    setNickname(e.target.value);
-  };
-
-  const onChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const onChangeTerm = (e) => {
-    setTermError(false);
-    setTerm(e.target.value);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    ChinstagramApi.post("/signup", user)
+      .then((res) => {
+        console.log("성공");
+        props.history.replace("/");
+      })
+      .catch((err) => {
+        console.log("회원가입 실패");
+      });
   };
 
   // const onSubmit = (e) => {
-    // e.preventDefault();
-    // if (!term) {
-    //   return setTermError(true);
-    // }
-    // console.log({
-    //   term,
-    // });
+  // e.preventDefault();
+  // if (!term) {
+  //   return setTermError(true);
+  // }
+  // console.log({
+  //   term,
+  // });
   // };
   // const onChangeTerm = (e) => {
   //   //체크박스 초기화
@@ -77,11 +62,10 @@ export default function Signup(props) {
           <div>
             <TextField
               name="user-email"
-              value={email}
+              value={user.email}
               required
-              onChange={onChangeEmail}
+              onChange={userHandle("email")}
               style={{ margin: 5, width: 250 }}
-              id="email-signup"
               label="이메일 주소"
               variant="outlined"
             />
@@ -89,11 +73,10 @@ export default function Signup(props) {
           <div>
             <TextField
               name="user-name"
-              value={name}
+              value={user.name}
               required
-              onChange={onChangeName}
+              onChange={userHandle("name")}
               style={{ margin: 5, width: 250 }}
-              id="name-signup"
               label="이름"
               variant="outlined"
             />
@@ -101,11 +84,10 @@ export default function Signup(props) {
           <div>
             <TextField
               name="user-nickname"
-              value={nickname}
+              value={user.nickname}
               required
-              onChange={onChangeNickname}
+              onChange={userHandle("nickname")}
               style={{ margin: 5, width: 250 }}
-              id="nickname-signup"
               label="닉네임"
               variant="outlined"
             />
@@ -113,11 +95,10 @@ export default function Signup(props) {
           <div>
             <TextField
               name="user-password"
-              value={password}
+              value={user.password}
               required
-              onChange={onChangePassword}
+              onChange={userHandle("password")}
               style={{ margin: 5, width: 250 }}
-              id="password-signup"
               label="비밀번호"
               type="password"
               variant="outlined"
@@ -132,20 +113,27 @@ export default function Signup(props) {
                 <Checkbox
                   name="valid"
                   color="primary"
-                  value={term}
-                  onChange={onChangeTerm}
-                >동의하십니까?</Checkbox>
-                {termError && <div style={{ color: "red" }}> 약관에 동의하셔야 합니다</div>}
+                  // value={term}
+                  // onChange={onChangeTerm}
+                >
+                  동의하십니까?
+                </Checkbox>
+                {/* {termError && (
+                  <div style={{ color: "red" }}> 약관에 동의하셔야 합니다</div>
+                )} */}
               </div>
             }
             label="가입하면 Chinstagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다."
           />
           <br></br>
-          <Link to="/">
-            <Button type="submit" style={{ margin: 10 }} variant="contained" color="primary">
-              회원가입
-            </Button>
-          </Link>
+          <Button
+            type="submit"
+            style={{ margin: 10 }}
+            variant="contained"
+            color="primary"
+          >
+            회원가입
+          </Button>
         </form>
         <div className="space"></div>
       </div>
