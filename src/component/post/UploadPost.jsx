@@ -1,10 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import { Button, TextField } from '@material-ui/core';
+import React, { useState } from "react";
+import ChinstagramApi from "../../chinstagramAPI/ChinstagramAPI";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import { Button, TextField } from "@material-ui/core";
 import Logo from "../logo/Logo";
 import "../item.css";
 
@@ -30,70 +31,105 @@ const useStyles = makeStyles((theme) => ({
 export default function UploadPost(props) {
   const classes = useStyles();
 
+  const [board, setBoard] = useState({
+    script: "",
+    image: "",
+  });
+
+  const boardHandle = (v) => (e) => {
+    setBoard({
+      ...board,
+      [v]: e.target.value,
+    });
+  };
+
   const onClickCancel = () => {
     props.history.goBack();
   };
 
-  const hiddenFileInput = React.useRef(null);
+  const onSubmitUpload = (e) => {
+    e.preventDefault();
+    ChinstagramApi({
+      method: "POST",
+      url: "/board",
+      data: board,
+    })
+      .then((res) => {
+        console.log("업로드 성공");
+        props.history.replace("/main");
+      })
+      .catch((err) => {
+        console.log("업로드 실패");
+      });
+  };
 
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
-  };
-  const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
-    //props.handleFile(fileUploaded);
-  };
+  // const hiddenFileInput = React.useRef(null);
+
+  // const handleClick = (event) => {
+  //   hiddenFileInput.current.click();
+  // };
+  // const handleChange = (event) => {
+  //   const fileUploaded = event.target.files[0];
+  //   //props.handleFile(fileUploaded);
+  // };
 
   return (
     <div>
       <Logo></Logo>
       <div className="card-align">
         <Card className={classes.root}>
-          <CardHeader subheader="July 14, 2020" action={<div></div>} />
-          <CardMedia style={{ height: 300 }}>
-            <div style={{ marginTop: 250, marginLeft: 150 }}>
-              <Button
-                style={{ width: 100 }}
-                variant="contained"
-                onClick={handleClick}
-              >
-                파일 선택
-              </Button>
-              <input
-                className="media"
-                type="file"
-                ref={hiddenFileInput}
-                onChange={handleChange}
-                style={{ display: "none" }}
-              />
-              <input type="file" style={{ marginLeft: 20 }}></input>
-            </div>
-          </CardMedia>
-          <CardContent>
-            <div style={{ marginTop: 20, marginBottom: 10 }}>
-              <TextField
-                style={{ margin: 5, width: 550 }}
-                multiline
-                rows={3}
-                id="upload-script"
-                label="내용을 입력하세용 ٩(๑❛ᴗ❛๑)۶"
-                variant="outlined"
-              />
-            </div>
+          <form onSubmit={onSubmitUpload}>
+            <CardHeader subheader="July 14, 2020" action={<div></div>} />
+            <CardMedia style={{ height: 300 }}>
+              <div style={{ marginTop: 250, marginLeft: 150 }}>
+                {/* <Button style={{ width: 100 }} variant="contained">
+                  파일 선택
+                </Button>
+                <input
+                  className="media"
+                  type="file"
+                  style={{ display: "none" }}
+                /> */}
+                <input
+                  value={board.image}
+                  onChange={boardHandle("image")}
+                  type="file"
+                  style={{ marginLeft: 20 }}
+                ></input>
+              </div>
+            </CardMedia>
+            <CardContent>
+              <div style={{ marginTop: 20, marginBottom: 10 }}>
+                <TextField
+                  value={board.script}
+                  style={{ margin: 5, width: 550 }}
+                  multiline
+                  rows={3}
+                  id="upload-script"
+                  label="내용을 입력하세용 ٩(๑❛ᴗ❛๑)۶"
+                  variant="outlined"
+                  onChange={boardHandle("script")}
+                />
+              </div>
 
-            <div style={{ float: "right", marginBottom: 20 }}>
-              <Button style={{ margin: 10, width: 100 }} variant="contained">
-                업로드
-              </Button>
-              <Button
-                style={{ margin: 10, width: 100 }}
-                variant="contained"
-                onClick={onClickCancel}
-              >
-                취소
-              </Button>
-            </div>
-          </CardContent>
+              <div style={{ float: "right", marginBottom: 20 }}>
+                <Button
+                  type="submit"
+                  style={{ margin: 10, width: 100 }}
+                  variant="contained"
+                >
+                  업로드
+                </Button>
+                <Button
+                  style={{ margin: 10, width: 100 }}
+                  variant="contained"
+                  onClick={onClickCancel}
+                >
+                  취소
+                </Button>
+              </div>
+            </CardContent>
+          </form>
         </Card>
       </div>
     </div>
