@@ -24,7 +24,7 @@ export default function Signup(props) {
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmitSignup = (e) => {
     e.preventDefault();
     ChinstagramApi.post("/signup", user)
       .then((res) => {
@@ -58,7 +58,7 @@ export default function Signup(props) {
       <div className="space"></div>
       <div className="item-align">
         <h2 style={{ marginTop: 50, marginBottom: 50 }}>Sign Up ෆ</h2>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmitSignup}>
           <div>
             <TextField
               name="user-email"
