@@ -28,8 +28,8 @@ export default function Signup(props) {
   };
 
   const onChangeTerm = (e) => {
-    setTermError(false);
-    setTerm(e.target.value);
+    setTermError(!term);
+    setTerm(!term);
   };
 
   const onSubmitSignup = (e) => {
