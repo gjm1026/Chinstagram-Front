@@ -8,8 +8,8 @@ import ChinstagramApi from "../../chinstagramAPI/ChinstagramAPI";
 
 export default function LogIn(props) {
   const [login, setLogin] = useState({
-    email: "",
-    password: "",
+    id: "",
+    pw: "",
   });
 
   const loginHandle = (v) => (e) => {
@@ -21,14 +21,14 @@ export default function LogIn(props) {
 
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    // ChinstagramApi.post('')
-    //   .then((res) => {
-    //     console.log("로그인 성공");
-    //     props.history.replace("/main");
-    //   })
-    //   .catch((err) => {
-    //     console.log("로그인 실패");
-    //   });
+    ChinstagramApi.post('')
+      .then((res) => {
+        console.log("로그인 성공");
+        props.history.replace("/main");
+      })
+      .catch((err) => {
+        console.log("로그인 실패");
+      });
   };
 
   return (
@@ -43,10 +43,10 @@ export default function LogIn(props) {
             <TextField
               required
               style={{ margin: 5, width: 250 }}
-              value={login.email}
+              value={login.id}
               label="이메일 또는 닉네임"
               variant="outlined"
-              onChange={loginHandle("email")}
+              onChange={loginHandle("id")}
             />
           </div>
           <div>
@@ -54,11 +54,11 @@ export default function LogIn(props) {
               required
               style={{ margin: 5, width: 250 }}
               id="password-login"
-              value={login.password}
+              value={login.pw}
               label="비밀번호"
               type="password"
               variant="outlined"
-              onChange={loginHandle("password")}
+              onChange={loginHandle("pw")}
             />
           </div>
           <p style={{ marginBottom: 20 }}>계정이 없으신가요?</p>

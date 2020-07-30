@@ -1,14 +1,32 @@
 {
   "board": [
     {
-      "script": "자몽허니블랙티..",
-      "image": "C:\\fakepath\\IMG_6168.JPG",
+      "script": "사진 세개..",
+      "images": [
+        "C:\\fakepath\\스크린샷 2020-07-23 오전 1.42.59.png"
+      ],
       "id": 1
     },
     {
-      "script": "먹고싶당..",
-      "image": "C:\\fakepath\\profile1.552cfa78.png",
+      "script": "아직안됨..",
+      "images": [
+        "C:\\fakepath\\IMG_6168.JPG"
+      ],
       "id": 2
+    }
+  ],
+  "signup": [
+    {
+      "id": "pig",
+      "email": "pig@naver.com",
+      "name": "돼지",
+      "pw": "ggulggul"
+    },
+    {
+      "id": "mungmung",
+      "email": "mungmung@naver.com",
+      "name": "멍멍이",
+      "pw": "walwal"
     }
   ]
 }

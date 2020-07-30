@@ -31,16 +31,16 @@ const useStyles = makeStyles((theme) => ({
 export default function UploadPost(props) {
   const classes = useStyles();
 
-  const [board, setBoard] = useState({
-    script: "",
-    image: "",
-  });
+  
+  const [images, setImageFile] = useState([]);
 
-  const boardHandle = (v) => (e) => {
-    setBoard({
-      ...board,
-      [v]: e.target.value,
-    });
+  const [script, setScript] = useState('');
+  const scriptHandle = (e) => {
+    setScript(e.target.value);
+  };
+
+  const imageFileHandle = (e) => {
+    setImageFile([e.target.value]);
   };
 
   const onClickCancel = () => {
@@ -50,9 +50,12 @@ export default function UploadPost(props) {
   const onSubmitUpload = (e) => {
     e.preventDefault();
     ChinstagramApi({
-      method: "POST",
-      url: "/board",
-      data: board,
+      method: 'POST',
+      url: '/board',
+      data: {
+        script: script,
+        images: images
+      },
     })
       .then((res) => {
         console.log("업로드 성공");
@@ -90,25 +93,23 @@ export default function UploadPost(props) {
                   type="file"
                   style={{ display: "none" }}
                 /> */}
-                <input
-                  value={board.image}
-                  onChange={boardHandle("image")}
-                  type="file"
-                  style={{ marginLeft: 20 }}
-                ></input>
+                <input 
+                value={images.imageFile}
+                onChange={imageFileHandle}
+                type="file" style={{ marginLeft: 20 }} multiple></input>
               </div>
             </CardMedia>
             <CardContent>
               <div style={{ marginTop: 20, marginBottom: 10 }}>
                 <TextField
-                  value={board.script}
+                  value={script}
                   style={{ margin: 5, width: 550 }}
                   multiline
                   rows={3}
                   id="upload-script"
                   label="내용을 입력하세용 ٩(๑❛ᴗ❛๑)۶"
                   variant="outlined"
-                  onChange={boardHandle("script")}
+                  onChange={scriptHandle}
                 />
               </div>
 
