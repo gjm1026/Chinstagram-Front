@@ -10,12 +10,12 @@ import Logo from "../logo/Logo";
 import "../item.css";
 
 export default function Signup(props) {
-  const regularExpression = {
-    id: /^[a-z]+[a-z0-9]{5,19}$/g, // 영소문자+숫자
-    email: /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/,
-    name: /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/, // 한글+영문
-    pw: /^[A-Za-z0-9]{6,12}$/, // 영문+숫자
-  };
+  // const regularExpression = {
+  //   id: /^[a-z]+[a-z0-9]{5,19}$/g, // 영소문자+숫자
+  //   email: /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/,
+  //   name: /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/, // 한글+영문
+  //   pw: /^[A-Za-z0-9]{6,12}$/, // 영문+숫자
+  // };
   const [user, setUser] = useState({
     id: "",
     email: "",
@@ -26,12 +26,12 @@ export default function Signup(props) {
   const [term, setTerm] = useState(false);
   const [termError, setTermError] = useState(false);
 
-  const validCheck= {
-    id: false,
-    email: false,
-    name: false,
-    pw: false
-  };
+  // const validCheck= {
+  //   id: false,
+  //   email: false,
+  //   name: false,
+  //   pw: false
+  // };
 
   const userHandle = (v) => (e) => {
     setUser({
