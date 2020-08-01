@@ -39,6 +39,38 @@
       "email": "tagram@gmail.com",
       "name": "친친친",
       "pw": "clsclscls"
+    },
+    {
+      "id": "f",
+      "email": "f",
+      "name": "f",
+      "pw": "f"
+    },
+    {
+      "id": "d",
+      "email": "d",
+      "name": "f",
+      "pw": "f"
+    },
+    {
+      "id": "jj",
+      "email": "jj",
+      "name": "jj",
+      "pw": "jj"
+    }
+  ],
+  "login": [
+    {
+      "id": "ididididid",
+      "pw": "pwpwpwpwp"
+    },
+    {
+      "id": "dd",
+      "pw": "dd"
+    },
+    {
+      "id": "d",
+      "pw": "d"
     }
   ]
 }

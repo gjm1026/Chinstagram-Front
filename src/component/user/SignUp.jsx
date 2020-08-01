@@ -10,6 +10,12 @@ import Logo from "../logo/Logo";
 import "../item.css";
 
 export default function Signup(props) {
+  const regularExpression = {
+    id: /^[a-z]+[a-z0-9]{5,19}$/g, // 영소문자+숫자
+    email: /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/,
+    name: /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/, // 한글+영문
+    pw: /^[A-Za-z0-9]{6,12}$/, // 영문+숫자
+  };
   const [user, setUser] = useState({
     id: "",
     email: "",
@@ -19,6 +25,13 @@ export default function Signup(props) {
 
   const [term, setTerm] = useState(false);
   const [termError, setTermError] = useState(false);
+
+  const validCheck= {
+    id: false,
+    email: false,
+    name: false,
+    pw: false
+  };
 
   const userHandle = (v) => (e) => {
     setUser({
@@ -43,9 +56,11 @@ export default function Signup(props) {
         props.history.replace("/");
       })
       .catch((err) => {
-        console.log("회원가입 실패");
+        console.log("회원가입 실패", err);
       });
   };
+
+
 
   return (
     <div style={{ height: 1200 }}>
@@ -75,6 +90,7 @@ export default function Signup(props) {
               style={{ margin: 5, width: 250 }}
               label="이메일 주소"
               variant="outlined"
+              
             />
           </div>
           <div>
@@ -86,6 +102,7 @@ export default function Signup(props) {
               style={{ margin: 5, width: 250 }}
               label="이름"
               variant="outlined"
+              
             />
           </div>
 
@@ -99,6 +116,7 @@ export default function Signup(props) {
               label="비밀번호"
               type="password"
               variant="outlined"
+              
             />
           </div>
 
@@ -121,7 +139,7 @@ export default function Signup(props) {
                   </div>
                 )}
               </div>
-            } 
+            }
             label="가입하면 Chinstagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다."
           />
           <br></br>

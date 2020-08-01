@@ -5,7 +5,6 @@ import Logo from "../logo/Logo";
 import "../item.css";
 import ChinstagramApi from "../../chinstagramAPI/ChinstagramAPI";
 
-
 export default function LogIn(props) {
   const [login, setLogin] = useState({
     id: "",
@@ -21,18 +20,29 @@ export default function LogIn(props) {
 
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    ChinstagramApi.post('')
+    ChinstagramApi({
+      method: "post",
+      url: "/login",
+      data: login,
+    })
       .then((res) => {
-        console.log("로그인 성공");
-        props.history.replace("/main");
+        console.log("로그인 성공", res.data);
+        exLogin(res.data);
       })
       .catch((err) => {
-        console.log("로그인 실패");
+        console.log("로그인 실패", err);
+        // 에러코드 처리
       });
   };
 
+  const exLogin = (e) => {
+    window.localStorage.setItem("id", e.id);
+    window.localStorage.setItem("accessToken", e.token);
+    props.history.push("/main");
+  };
+
   return (
-    <div style={{ height: 1200 }}>
+    <div>
       <Logo></Logo>
 
       <div className="space"></div>
@@ -81,7 +91,7 @@ export default function LogIn(props) {
           >
             로그인
           </Button>
-          </form>
+        </form>
         <div className="space"></div>
       </div>
     </div>
