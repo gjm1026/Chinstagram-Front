@@ -1,4 +1,4 @@
-![React build](https://github.com/gjm1026/Chinstagram-Front/workflows/React%20build/badge.svg)
+![React build](https://github.com/gjm1026/Chinstagram-Front/workflows/React%20build/badge.svg?branch=master)
 
 ## Chinstagram Frontend
 
