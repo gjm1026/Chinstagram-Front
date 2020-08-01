@@ -14,7 +14,7 @@ export default function EditProfile(props) {
       <Logo></Logo>
       <div>
         <div className="profile-image">
-          <img src={profilephoto}></img> <br></br>
+          <img src={profilephoto} alt='profilephoto'></img> <br></br>
           <input
             style={{
               marginLeft: 30,

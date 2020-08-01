@@ -27,7 +27,7 @@ export default function Profile(props) {
           </Link>
         </div>
         <div>
-          <img className="profile-image" src={profilephoto}></img>
+          <img className="profile-image" src={profilephoto} alt='profilephoto'></img>
           <div className="profile-info">
             <br></br>
             <div className="nickname">jeongmin</div>
