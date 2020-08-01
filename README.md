@@ -1,3 +1,5 @@
+![React build](https://github.com/gjm1026/Chinstagram-Front/workflows/React%20build/badge.svg)
+
 ## Chinstagram Frontend
 
 Chinstagram FE repository from '친해지길바래' team.
