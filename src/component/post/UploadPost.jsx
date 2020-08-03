@@ -51,7 +51,7 @@ export default function UploadPost(props) {
     e.preventDefault();
     ChinstagramApi({
       method: 'POST',
-      url: '/board',
+      url: '/content',
       data: {
         script: script,
         images: images
@@ -59,7 +59,7 @@ export default function UploadPost(props) {
     })
       .then((res) => {
         console.log("업로드 성공");
-        props.history.replace("/main");
+        props.history.replace("/content");
       })
       .catch((err) => {
         console.log("업로드 실패");

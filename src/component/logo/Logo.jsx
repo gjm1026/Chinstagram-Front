@@ -5,7 +5,7 @@ import "./logo.css";
 export default function Logo(props) {
   return (
     <div>
-      <Link to="/main" style={{ color: "inherit", textDecoration: "inherit" }}>
+      <Link to="/content" style={{ color: "inherit", textDecoration: "inherit" }}>
         <div className="logo-font">Chinstagram</div>
       </Link>
       <br></br>

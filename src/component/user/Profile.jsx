@@ -11,7 +11,7 @@ export default function Profile(props) {
       <Logo></Logo>
       <div>
         <div>
-          <Link to="/editprofile">
+          <Link to="/user/profile">
             <Button
               style={{
                 margin: 10,

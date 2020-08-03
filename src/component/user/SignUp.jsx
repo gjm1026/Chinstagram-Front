@@ -53,7 +53,7 @@ export default function Signup(props) {
     ChinstagramApi.post("/signup", user)
       .then((res) => {
         console.log("회원가입 성공");
-        props.history.replace("/");
+        props.history.replace("/user/login");
       })
       .catch((err) => {
         console.log("회원가입 실패", err);

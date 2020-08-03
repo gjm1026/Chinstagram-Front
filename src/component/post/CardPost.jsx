@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,13 +27,13 @@ export default function CardPosts(props) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardHeader subheader="July 14, 2020" />
+        <CardHeader subheader="July 14, 2020" board={props.content} />
         <CardMedia
           className={classes.media}
           image="/static/images/cards/paella.jpg"
           title="Paella dish"
         />
-        <CardContent>
+        <CardContent board={props.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             내용내용
           </Typography>

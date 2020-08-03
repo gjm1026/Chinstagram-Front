@@ -13,13 +13,16 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Route path="/user/login" component={LogIn} />
+        <Route path="/user/signup" component={SignUp} />
+        <Route path="/user/profile" component={EditProfile} />
+
+        <Route path="/content/:id/edit" component={EditPost} />
+        <Route path="/content/:id/upload" component={UploadPost} />
+        <Route exact path="/content/:id" component={PostView} />
+        <Route exact path="/content" component={Main} />
+
         <Route exact path="/" component={LogIn} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/main" component={Main} />
-        <Route exact path="/detail" component={PostView} />
-        <Route exact path="/editpost" component={EditPost} />
-        <Route exact path="/editprofile" component={EditProfile} />
-        <Route exact path="/upload" component={UploadPost} />
       </BrowserRouter>
     </div>
   );

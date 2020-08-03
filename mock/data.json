@@ -1,5 +1,5 @@
 {
-  "board": [
+  "content": [
     {
       "script": "사진 세개..",
       "images": [
@@ -13,6 +13,11 @@
         "C:\\fakepath\\IMG_6168.JPG"
       ],
       "id": 2
+    },
+    {
+      "script": "",
+      "images": [],
+      "id": 3
     }
   ],
   "signup": [
@@ -41,22 +46,10 @@
       "pw": "clsclscls"
     },
     {
-      "id": "f",
-      "email": "f",
-      "name": "f",
-      "pw": "f"
-    },
-    {
-      "id": "d",
-      "email": "d",
-      "name": "f",
-      "pw": "f"
-    },
-    {
-      "id": "jj",
-      "email": "jj",
-      "name": "jj",
-      "pw": "jj"
+      "id": "wjdals",
+      "email": "wjdals",
+      "name": "wjdals",
+      "pw": "wjdals"
     }
   ],
   "login": [
@@ -65,12 +58,12 @@
       "pw": "pwpwpwpwp"
     },
     {
-      "id": "dd",
-      "pw": "dd"
+      "id": "jm",
+      "pw": "jm"
     },
     {
-      "id": "d",
-      "pw": "d"
+      "id": "kk",
+      "pw": "kk"
     }
   ]
 }

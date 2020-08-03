@@ -6,10 +6,10 @@ import Profile from "../user/Profile";
 
 export default function Main(props) {
   return (
-    <div style={{ height: 1800 }}>
+    <div>
       <Profile></Profile>
       <div>
-        <Link to="/upload">
+        <Link to={'./content/${props.content.id}/upload'}>
           <Button
             style={{
               margin: 10,
@@ -25,7 +25,7 @@ export default function Main(props) {
         </Link>
       </div>
       <div style={{ marginTop: 150 }}>
-        <Link to="/detail">
+        <Link to={'./content/${props.content.id}'}>
           <CardPost></CardPost>
         </Link>
       </div>

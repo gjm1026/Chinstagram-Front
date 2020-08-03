@@ -38,7 +38,7 @@ export default function LogIn(props) {
   const exLogin = (e) => {
     window.localStorage.setItem("id", e.id);
     window.localStorage.setItem("accessToken", e.token);
-    props.history.push("/main");
+    props.history.push("/content");
   };
 
   return (
@@ -73,7 +73,7 @@ export default function LogIn(props) {
           </div>
           <p style={{ marginBottom: 20 }}>계정이 없으신가요?</p>
           <Link
-            to="/signup"
+            to="/user/signup"
             style={{
               color: "blue",
               marginBottom: 30,
