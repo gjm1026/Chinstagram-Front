@@ -1,69 +1,7 @@
 {
-  "content": [
+  "signup":[
     {
-      "script": "사진 세개..",
-      "images": [
-        "C:\\fakepath\\스크린샷 2020-07-23 오전 1.42.59.png"
-      ],
-      "id": 1
-    },
-    {
-      "script": "아직안됨..",
-      "images": [
-        "C:\\fakepath\\IMG_6168.JPG"
-      ],
-      "id": 2
-    },
-    {
-      "script": "",
-      "images": [],
-      "id": 3
-    }
-  ],
-  "signup": [
-    {
-      "id": "pig",
-      "email": "pig@naver.com",
-      "name": "돼지",
-      "pw": "ggulggul"
-    },
-    {
-      "id": "mungmung",
-      "email": "mungmung@naver.com",
-      "name": "멍멍이",
-      "pw": "walwal"
-    },
-    {
-      "id": "min",
-      "email": "go123@naver.com",
-      "name": "고고고",
-      "pw": "gogogo"
-    },
-    {
-      "id": "chins",
-      "email": "tagram@gmail.com",
-      "name": "친친친",
-      "pw": "clsclscls"
-    },
-    {
-      "id": "wjdals",
-      "email": "wjdals",
-      "name": "wjdals",
-      "pw": "wjdals"
-    }
-  ],
-  "login": [
-    {
-      "id": "ididididid",
-      "pw": "pwpwpwpwp"
-    },
-    {
-      "id": "jm",
-      "pw": "jm"
-    },
-    {
-      "id": "kk",
-      "pw": "kk"
+
     }
   ]
 }

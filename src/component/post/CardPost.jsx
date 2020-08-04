@@ -27,13 +27,13 @@ export default function CardPosts(props) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardHeader subheader="July 14, 2020" board={props.content} />
+        <CardHeader subheader="July 14, 2020" content={props.content} />
         <CardMedia
           className={classes.media}
           image="/static/images/cards/paella.jpg"
           title="Paella dish"
         />
-        <CardContent board={props.content}>
+        <CardContent content={props.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             내용내용
           </Typography>

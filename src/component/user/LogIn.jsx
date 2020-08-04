@@ -22,7 +22,7 @@ export default function LogIn(props) {
     e.preventDefault();
     ChinstagramApi({
       method: "post",
-      url: "/login",
+      url: "/user/login",
       data: login,
     })
       .then((res) => {
@@ -36,6 +36,7 @@ export default function LogIn(props) {
   };
 
   const exLogin = (e) => {
+    window.localStorage.setItem("accessToken",e.token);
     window.localStorage.setItem("id", e.id);
     window.localStorage.setItem("accessToken", e.token);
     props.history.push("/content");

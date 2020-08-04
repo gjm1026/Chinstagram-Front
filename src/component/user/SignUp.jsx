@@ -50,9 +50,9 @@ export default function Signup(props) {
     if (!term) {
       return setTermError(true);
     }
-    ChinstagramApi.post("/signup", user)
+    ChinstagramApi.post("/user/signup", user)
       .then((res) => {
-        console.log("회원가입 성공");
+        console.log("회원가입 성공", res.data);
         props.history.replace("/user/login");
       })
       .catch((err) => {

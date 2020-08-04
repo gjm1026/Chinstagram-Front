@@ -9,7 +9,8 @@ export default function Main(props) {
     <div>
       <Profile></Profile>
       <div>
-        <Link to={'./content/${props.content.id}/upload'}>
+        <Link to={`./content`}>
+        
           <Button
             style={{
               margin: 10,
@@ -25,7 +26,7 @@ export default function Main(props) {
         </Link>
       </div>
       <div style={{ marginTop: 150 }}>
-        <Link to={'./content/${props.content.id}'}>
+        <Link to={'./content/${props.params.id}'}>
           <CardPost></CardPost>
         </Link>
       </div>
