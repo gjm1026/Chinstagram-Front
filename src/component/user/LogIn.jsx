@@ -36,7 +36,6 @@ export default function LogIn(props) {
   };
 
   const exLogin = (e) => {
-    window.localStorage.setItem("accessToken",e.token);
     window.localStorage.setItem("id", e.id);
     window.localStorage.setItem("accessToken", e.token);
     props.history.push("/content");

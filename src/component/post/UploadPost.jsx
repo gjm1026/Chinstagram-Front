@@ -30,15 +30,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UploadPost(props) {
   const classes = useStyles();
+  const [images, setImageFile] = useState([
+    {
+      name: "",
+      path: "",
+    },
+  ]);
 
-  
-  const [images, setImageFile] = useState([]);
-
-  const [script, setScript] = useState('');
+  const [script, setScript] = useState("");
+  const token = window.localStorage.getItem("accessToken");
   const scriptHandle = (e) => {
     setScript(e.target.value);
   };
-
   const imageFileHandle = (e) => {
     setImageFile([e.target.value]);
   };
@@ -50,11 +53,19 @@ export default function UploadPost(props) {
   const onSubmitUpload = (e) => {
     e.preventDefault();
     ChinstagramApi({
-      method: 'POST',
-      url: '/content',
+      method: "POST",
+      url: "/content",
+      header:{
+        Authorization: token,
+        'content-type' : 'multipart/form-data'
+      },
       data: {
+        id : 1111,
         script: script,
-        images: images
+        images: [{
+          name: images.name,
+          path: images.path
+        }],
       },
     })
       .then((res) => {
@@ -62,41 +73,29 @@ export default function UploadPost(props) {
         props.history.replace("/content");
       })
       .catch((err) => {
-        console.log("업로드 실패");
+        console.log("업로드 실패", err);
       });
   };
-
-  // const hiddenFileInput = React.useRef(null);
-
-  // const handleClick = (event) => {
-  //   hiddenFileInput.current.click();
-  // };
-  // const handleChange = (event) => {
-  //   const fileUploaded = event.target.files[0];
-  //   //props.handleFile(fileUploaded);
-  // };
 
   return (
     <div>
       <Logo></Logo>
       <div className="card-align">
         <Card className={classes.root}>
-          <form onSubmit={onSubmitUpload}>
+          {/* <form onSubmit={onSubmitUpload}> */}
             <CardHeader subheader="July 14, 2020" action={<div></div>} />
             <CardMedia style={{ height: 300 }}>
               <div style={{ marginTop: 250, marginLeft: 150 }}>
-                {/* <Button style={{ width: 100 }} variant="contained">
-                  파일 선택
-                </Button>
+              <form method="post"  encType="multipart/form-data">
                 <input
-                  className="media"
+                  name="images"
+                  value={images.path}
+                  onChange={imageFileHandle}
                   type="file"
-                  style={{ display: "none" }}
-                /> */}
-                <input 
-                value={images.imageFile}
-                onChange={imageFileHandle}
-                type="file" style={{ marginLeft: 20 }} multiple></input>
+                  style={{ marginLeft: 20 }}
+                  multiple
+                ></input>
+                </form>
               </div>
             </CardMedia>
             <CardContent>
@@ -118,6 +117,7 @@ export default function UploadPost(props) {
                   type="submit"
                   style={{ margin: 10, width: 100 }}
                   variant="contained"
+                  onClick={onSubmitUpload}
                 >
                   업로드
                 </Button>
@@ -130,7 +130,7 @@ export default function UploadPost(props) {
                 </Button>
               </div>
             </CardContent>
-          </form>
+          {/* </form> */}
         </Card>
       </div>
     </div>
